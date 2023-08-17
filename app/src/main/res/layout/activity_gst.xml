@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        tools:context=".Gst_Activity">
+
+        <!--Currency Text View-->
+        <TextView
+            android:id="@+id/currency_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/select_currency"
+            app:layout_constraintBottom_toBottomOf="@id/currency_menu"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/currency_menu"
+            app:layout_constraintVertical_bias="0.14" />
+
+        <!--Currency Exposed Drop Down Menu-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/currency_menu"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/currency_menu"
+            app:helperTextEnabled="true"
+            app:helperText=" "
+            app:startIconDrawable="@drawable/ic_currency"
+            android:layout_marginStart="60dp"
+            app:layout_constraintStart_toEndOf="@id/currency_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <AutoCompleteTextView
+                android:id="@+id/currency_menu_auto_complete"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:editable="false"
+                android:inputType="none"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!--Amount Text View-->
+        <TextView
+            android:id="@+id/amount_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/amount_text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/amount_text_field"
+            app:layout_constraintBottom_toBottomOf="@id/amount_text_field"
+            app:layout_constraintVertical_bias="0.14"/>
+
+        <!--Amount Text Field-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/amount_text_field"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/amount_text_field"
+            app:prefixText="@string/amount_prefix_USD"
+            app:helperTextEnabled="true"
+            app:helperText=" "
+            app:errorEnabled="true"
+            app:layout_constraintStart_toStartOf="@id/currency_menu"
+            app:layout_constraintEnd_toEndOf="@id/currency_menu"
+            app:layout_constraintTop_toBottomOf="@id/currency_menu">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/amount_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:hint="@string/amount_default"
+                android:inputType="numberDecimal" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!--Rate Text View-->
+        oBottomOf="@id/<TextView
+            android:id="@+id/rate_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/rate_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/rate_text_field"
+        app:layout_constraintBottom_trate_text_field"
+            app:layout_constraintVertical_bias="0.14"/>
+
+        <!--Rate Text Field-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/rate_text_field"
+            android:layout_width="222dp"
+            android:layout_height="54dp"
+            android:hint="@string/rate_text_field"
+            app:errorEnabled="true"
+            app:helperText=" "
+            app:helperTextEnabled="true"
+            app:layout_constraintEnd_toEndOf="@id/amount_text_field"
+            app:layout_constraintStart_toStartOf="@id/amount_text_field"
+            app:layout_constraintTop_toBottomOf="@id/amount_text_field"
+            app:suffixText="@string/rate_suffix">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/rate_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:hint="@string/rate_default"
+                android:inputType="numberDecimal" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!--Add GST Button-->
+
+        <!--Remove GST Button-->
+        <Button
+            android:id="@+id/add_GST"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="168dp"
+            android:text="@string/add_GST"
+            app:layout_constraintEnd_toStartOf="@id/remove_GST"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rate_text_field" />
+
+        <TextView
+            android:id="@+id/GST_amount_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@string/GST_amount_text"
+            app:layout_constraintBottom_toBottomOf="@id/GST_amount_text_field"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/GST_amount_text_field"
+            app:layout_constraintVertical_bias="0.54" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/total_amount_text_field"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:hint="@string/amount_default"
+            app:layout_constraintEnd_toEndOf="@id/GST_amount_text_field"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@id/GST_amount_text_field"
+            app:layout_constraintTop_toBottomOf="@id/GST_amount_text_field">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/total_amount_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:editable="false"
+                android:inputType="none" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/net_amount_text_field"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:hint="@string/amount_default"
+            app:layout_constraintEnd_toEndOf="@id/rate_text_field"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@id/rate_text_field"
+            app:layout_constraintTop_toBottomOf="@id/remove_GST">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/net_amount_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:editable="false"
+                android:inputType="none" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/total_amount_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@string/total_amount_text"
+            app:layout_constraintBottom_toBottomOf="@id/total_amount_text_field"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/total_amount_text_field"
+            app:layout_constraintVertical_bias="0.324" />
+
+        <TextView
+            android:id="@+id/net_amount_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@string/net_amount_text"
+            app:layout_constraintBottom_toBottomOf="@id/net_amount_text_field"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/net_amount_text_field"
+            app:layout_constraintVertical_bias="0.351" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/GST_amount_text_field"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:hint="@string/amount_default"
+            app:layout_constraintEnd_toEndOf="@id/net_amount_text_field"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@id/net_amount_text_field"
+            app:layout_constraintTop_toBottomOf="@id/net_amount_text_field">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/GST_amount_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:editable="false"
+                android:inputType="none" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/remove_GST"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="168dp"
+            android:text="@string/remove_GST"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/add_GST"
+            app:layout_constraintTop_toBottomOf="@id/rate_text_field" />
+
+        <!--Net Amount Text View-->
+
+        <!--Net Amount Text Field (uneditable - only for displaying result)-->
+
+        <!--GST Amount Text View-->
+
+        <!--GST Amount Text Field (uneditable - only for displaying result)-->
+
+        <!--Total Amount Text View-->
+
+        <!--Total Amount Text Field (uneditable - only for displaying result)-->
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
